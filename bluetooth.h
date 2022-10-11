@@ -23,11 +23,15 @@ void BLUETOOTH::Begin() {
 void BLUETOOTH::Receive(){
     received = "";
     if(bt.available()){
-        received = bt.readString();
+        char c = bt.read();   
+        received += c;
+        Serial.println(c);
     }
 }
 
 void BLUETOOTH::Send(){
-    bt.println(log);
-    log = "";
+    if(log != ""){
+        bt.println(log);
+        log = "";
+    }
 }

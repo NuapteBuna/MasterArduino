@@ -11,14 +11,19 @@ void setup(){
   Com.Begin();
 
   Bt.Begin();
+
+  DHTS.Begin();
 }
 
 void loop() {
-  Serial.println(Bt.received);
+  //Serial.println(Bt.received);
   
-  int x = rand();
-  Bt.log += x;
-  Com.log += x;
+  //int x = rand();
+  //Bt.log += x;
+  //Com.log += x;
+  Com.log += Bt.received;
+
+  DHTS.Read();
 
   /* Bluetooth Receive System */
   Bt.Receive();
@@ -28,8 +33,6 @@ void loop() {
 
   /* Communication Send System */
   Com.Send();
-
-  delay(1000);
 }
 
 

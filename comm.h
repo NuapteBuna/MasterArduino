@@ -23,8 +23,10 @@ void COMMUNICATION::Begin(int baud_rate = 9600){
 }
 
 void COMMUNICATION::Send(){
-    link.println(log);
-    log = "";
+    if(log != ""){
+        link.print(log);
+        log = "";
+    }
 }
 
 void COMMUNICATION::WriteBytes(char* buffer, int size){
