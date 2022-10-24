@@ -16,21 +16,24 @@ void setup(){
 }
 
 void loop() {
-  //Serial.println(Bt.received);
+  if(Bt.received != ""){
+    Com.log = "";
+    Com.log += Bt.received;
+  }
   
   //int x = rand();
   //Bt.log += x;
   //Com.log += x;
-  Com.log += Bt.received;
 
-  DHTS.Read();
+  //DHTS.Read();
 
   /* Bluetooth Receive System */
   Bt.Receive();
 
+  
   /* Bluetooth Send System */
-  Bt.Send();
-
+  //Bt.Send();
+  
   /* Communication Send System */
   Com.Send();
 }

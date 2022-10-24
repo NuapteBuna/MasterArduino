@@ -2,8 +2,8 @@
 #include <string.h>
 #include <SoftwareSerial.h>
 
-#define BT_PIN1 6
-#define BT_PIN2 7
+#define BT_PIN1 4
+#define BT_PIN2 5
 
 SoftwareSerial bt(BT_PIN1, BT_PIN2);
 
@@ -23,7 +23,7 @@ void BLUETOOTH::Begin() {
 void BLUETOOTH::Receive(){
     received = "";
     if(bt.available()){
-        char c = bt.read();   
+        char c = bt.read();
         received += c;
         Serial.println(c);
     }

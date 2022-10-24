@@ -14,6 +14,7 @@ struct COMMUNICATION{
     void WriteString(String buffer);
     void WriteBytesFromString(String buffer);
     char* CurrentValue = {""};
+    char curr;
     String log = "";
 };
 COMMUNICATION Com;
